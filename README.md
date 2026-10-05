@@ -75,7 +75,3 @@ Open the URL shown in the terminal to access the application.
 ## Database
 
 The application uses SQLite for lightweight local database persistence. Database files are excluded from source control using `.gitignore`.
-
-## Purpose
-
-This project was built as a practical ASP.NET Core MVC project to demonstrate C#, MVC architecture, Entity Framework Core, database migrations, and CRUD-based application development.
