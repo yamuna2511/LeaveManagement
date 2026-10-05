@@ -6,7 +6,6 @@ An ASP.NET Core MVC application for managing employee leave requests, approvals,
 
 * Employee leave request management
 * Leave approval workflow
-* Leave balance tracking
 * Leave status management
 * Entity Framework Core database integration
 * SQLite database
