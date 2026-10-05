@@ -1,0 +1,36 @@
+@model LeaveManagement.Models.Leave;
+@using LeaveManagement.Enums;
+<html>
+<div>
+    <label>Employee</label>
+    <input value="@Model.Employee.Name" readonly />
+</div>
+<div>
+    <label>From Date</label>
+    <input value="@Model.FromDate" readonly />
+</div>
+
+<div>
+    <label>To Date</label>
+    <input value="@Model.ToDate" readonly />
+</div>
+<div>
+    <label>Leave Type</label>
+    <input value="@Model.Type" readonly />
+</div>
+<div>
+    <label>Reason</label>
+    <textarea readonly>@Model.Reason</textarea>
+</div>
+
+<form asp-action="UpdateStatus" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <select asp-for="Status" asp-items="Html.GetEnumSelectList<LeaveStatus>()">"
+         
+    </select> <br />
+
+    <button type="submit">Update</button>
+</form>
+
+</html>

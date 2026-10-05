@@ -1,0 +1,43 @@
+@model LeaveManagement.ViewModels.CreateLeaveView;
+@using LeaveManagement.Enums;
+
+@{
+    ViewData[index: "Title"] = "Leave Request";
+}
+
+<h2>New @ViewData[index: "Title"]</h2>
+
+<html>
+<form method="post">
+    
+    <label asp-for="EmployeeId">Employee</label>
+    <select asp-for="EmployeeId">
+        <option value="">--Select Employee--</option>
+        @foreach (var employee in Model.AvailableEmployees)
+                {
+                    <option value=@employee.Id>@employee.Name</option>
+                }
+            </select><br />
+
+    <label asp-for="Type">Leave Type</label>
+    <select asp-for="Type" asp-items="Html.GetEnumSelectList<LeaveType>()">
+        <option>--Select Leave Type--</option>
+    </select><br />
+
+    <label asp-for="FromDate">From Date</label>
+    <input asp-for="FromDate"  type="date" required />
+    <span asp-validation-for="FromDate" class="text-danger"></span><br />
+
+     <label asp-for="ToDate">To Date</label>
+    <input asp-for="ToDate"  type="date" />
+    <span asp-validation-for="ToDate" class="text-danger"></span><br />
+
+    <label asp-for="Reason">Reason</label>
+    <input asp-for="Reason"/>
+    <span asp-validation-for="Reason" class="text-danger"></span><br />    
+
+    <button type="submit">Submit</button>
+
+</form>
+    
+</html>

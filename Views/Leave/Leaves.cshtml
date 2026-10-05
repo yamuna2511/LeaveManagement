@@ -1,0 +1,41 @@
+@model List<LeaveManagement.Models.Leave>
+
+@{
+    ViewData[index: "Title"] = "Leaves";
+}
+
+<h2>@ViewData[index: "Title"]</h2>
+
+<a href="/Leave/AddLeave" />Add Leave</a>
+
+<html>
+    <table style="margin-top: 20px;">
+        <tr>
+            <th style="border:  1px solid black; padding: 8px;">Id</th>
+            <th style="border:  1px solid black; padding: 8px;">Employee Name</th>
+            <th style="border:  1px solid black; padding: 8px;">Leave Type</th>
+            <th style="border:  1px solid black; padding: 8px;">From Date</th>
+            <th style="border:  1px solid black; padding: 8px;">To Date</th>
+            <th style="border:  1px solid black; padding: 8px;">Status</th>
+            <th style="border:  1px solid black; padding: 8px;">Reason</th>
+            <th style="border:  1px solid black; padding: 8px;">Applied On</th>
+            <th style="border:  1px solid black; padding: 8px;">Action</th>
+        </tr>
+        
+        @foreach(var leave in Model){
+            <tr>
+                <td style="border:  1px solid black; padding: 8px;">@leave.Id</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.Employee.Name</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.Type</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.FromDate</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.ToDate</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.Status</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.Reason</td>
+                <td style="border:  1px solid black; padding: 8px;">@leave.CreatedOn</td>
+                <td style="border:  1px solid black; padding: 8px;">
+                    <a asp-controller="Leave" asp-action="UpdateLeave" asp-route-id="@leave.Id">Update</a> 
+                </td>
+            </tr>
+        }
+    </table>
+</html>

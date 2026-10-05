@@ -1,0 +1,29 @@
+@model LeaveManagement.Models.Employee;
+@using LeaveManagement.Enums;
+
+@{
+    ViewData[index: "Title"] = "Employee";
+}
+
+<h2>New @ViewData[index: "Title"]</h2>
+
+<html>
+<form method="post">
+    <label asp-for="Name">Name</label>
+    <input asp-for="Name" required />
+    <span asp-validation-for="Name" class="text-danger"></span><br />
+
+    <label asp-for="Department">Department</label>
+    <select asp-for="Department" asp-items="Html.GetEnumSelectList<Department>()">
+        <option>--Select Department--</option>
+    </select><br />
+
+    <label asp-for="Email">Email</label>
+    <input asp-for="Email" required />
+    <span asp-validation-for="Email" class="text-danger"></span><br />
+
+    <button type="submit">Submit</button>
+
+</form>
+    
+</html>

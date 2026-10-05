@@ -1,0 +1,31 @@
+@model List<LeaveManagement.Models.Employee>
+
+@{
+    ViewData[index: "Title"] = "Employees";
+}
+
+<h2>@ViewData[index: "Title"]</h2>
+
+<a href="/Employee/AddEmployee" />Add Employee</a>
+
+<html>
+    <table style="margin-top: 20px;">
+        <tr>
+            <th style="border:  1px solid black; padding: 8px;">Id</th>
+            <th style="border:  1px solid black; padding: 8px;">Name</th>
+            <th style="border:  1px solid black; padding: 8px;">Department</th>
+            <th style="border:  1px solid black; padding: 8px;">Email</th>
+            <th style="border:  1px solid black; padding: 8px;">Date of Joining</th>
+        </tr>
+        
+        @foreach(var Employee in Model){
+            <tr>
+                <td style="border:  1px solid black; padding: 8px;">@Employee.Id</td>
+                <td style="border:  1px solid black; padding: 8px;">@Employee.Name</td>
+                <td style="border:  1px solid black; padding: 8px;">@Employee.Department</td>
+                <td style="border:  1px solid black; padding: 8px;">@Employee.Email</td>
+                <td style="border:  1px solid black; padding: 8px;">@Employee.CreatedOn</td>
+            </tr>
+        }
+    </table>
+</html>
